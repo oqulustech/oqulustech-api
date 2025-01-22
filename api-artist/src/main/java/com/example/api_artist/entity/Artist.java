@@ -1,27 +1,31 @@
 package com.example.api_artist.entity;
-
+import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "artist")
+public class Artist {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
-    private int parent_category_id;
-    private Boolean status;
+    private int user_id;
+    private String artist_name;
+    private String bio;
+    private String profile_image;
+    private boolean status;
     private String created_by;
     private String updated_by;
     private String created_ts;
     private String updated_ts;
 
-    private Category(){}
+    public Artist(){}
 
-    public Category(int id, String name, int parentCategoryId, Boolean status, String createdBy, String updatedBy, String createdTs, String updatedTs) {
+    public Artist(int id, int userId, String artistName, String bio, String profileImage, boolean status, String createdBy, String updatedBy, String createdTs, String updatedTs) {
         this.id = id;
-        this.name = name;
-        this.parent_category_id = parentCategoryId;
+        this.user_id = userId;
+        this.artist_name = artistName;
+        this.bio = bio;
+        this.profile_image = profileImage;
         this.status = status;
         this.created_by = createdBy;
         this.updated_by = updatedBy;
@@ -37,27 +41,43 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getParent_category_id() {
-        return parent_category_id;
+    public String getArtist_name() {
+        return artist_name;
     }
 
-    public void setParent_category_id(int parent_category_id) {
-        this.parent_category_id = parent_category_id;
+    public void setArtist_name(String artist_name) {
+        this.artist_name = artist_name;
     }
 
-    public Boolean getStatus() {
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getProfile_image() {
+        return profile_image;
+    }
+
+    public void setProfile_image(String profile_image) {
+        this.profile_image = profile_image;
+    }
+
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

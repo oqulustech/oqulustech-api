@@ -18,10 +18,10 @@ public class Media {
 
     public Media(int id, int productId, String filePath, String createdBy, String createdTs) {
         this.id = id;
-        product_id = productId;
-        file_path = filePath;
-        created_by = createdBy;
-        created_ts = createdTs;
+        this.product_id = productId;
+        this.file_path = filePath;
+        this.created_by = createdBy;
+        this.created_ts = createdTs;
     }
 
 

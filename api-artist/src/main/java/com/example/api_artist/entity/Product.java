@@ -1,27 +1,27 @@
 package com.example.api_artist.entity;
-
+import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "product")
+public class Product {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
-    private int parent_category_id;
-    private Boolean status;
+    private int artist_id;
+    private String title;
+    private boolean status;
     private String created_by;
     private String updated_by;
     private String created_ts;
     private String updated_ts;
 
-    private Category(){}
+    public Product() {}
 
-    public Category(int id, String name, int parentCategoryId, Boolean status, String createdBy, String updatedBy, String createdTs, String updatedTs) {
+    public Product(int id, int artistId, String title, boolean status, String createdBy, String updatedBy, String createdTs, String updatedTs) {
         this.id = id;
-        this.name = name;
-        this.parent_category_id = parentCategoryId;
+        this.artist_id = artistId;
+        this.title = title;
         this.status = status;
         this.created_by = createdBy;
         this.updated_by = updatedBy;
@@ -37,27 +37,27 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public int getArtist_id() {
+        return artist_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setArtist_id(int artist_id) {
+        this.artist_id = artist_id;
     }
 
-    public int getParent_category_id() {
-        return parent_category_id;
+    public String getTitle() {
+        return title;
     }
 
-    public void setParent_category_id(int parent_category_id) {
-        this.parent_category_id = parent_category_id;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Boolean getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

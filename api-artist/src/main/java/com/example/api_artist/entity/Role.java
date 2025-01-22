@@ -1,32 +1,30 @@
 package com.example.api_artist.entity;
-
+import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "role")
+public class Role {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    private int parent_category_id;
-    private Boolean status;
+    private boolean status;
     private String created_by;
-    private String updated_by;
     private String created_ts;
-    private String updated_ts;
+    private String updated_by;
+    private String Updated_ts;
 
-    private Category(){}
+    public Role(){}
 
-    public Category(int id, String name, int parentCategoryId, Boolean status, String createdBy, String updatedBy, String createdTs, String updatedTs) {
+    public Role(int id, String name, boolean status, String createdBy, String createdTs, String updatedBy, String updatedTs) {
         this.id = id;
         this.name = name;
-        this.parent_category_id = parentCategoryId;
         this.status = status;
         this.created_by = createdBy;
-        this.updated_by = updatedBy;
         this.created_ts = createdTs;
-        this.updated_ts = updatedTs;
+        this.updated_by = updatedBy;
+        this.Updated_ts = updatedTs;
     }
 
     public int getId() {
@@ -45,19 +43,11 @@ public class Category {
         this.name = name;
     }
 
-    public int getParent_category_id() {
-        return parent_category_id;
-    }
-
-    public void setParent_category_id(int parent_category_id) {
-        this.parent_category_id = parent_category_id;
-    }
-
-    public Boolean getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -69,14 +59,6 @@ public class Category {
         this.created_by = created_by;
     }
 
-    public String getUpdated_by() {
-        return updated_by;
-    }
-
-    public void setUpdated_by(String updated_by) {
-        this.updated_by = updated_by;
-    }
-
     public String getCreated_ts() {
         return created_ts;
     }
@@ -85,11 +67,19 @@ public class Category {
         this.created_ts = created_ts;
     }
 
+    public String getUpdated_by() {
+        return updated_by;
+    }
+
+    public void setUpdated_by(String updated_by) {
+        this.updated_by = updated_by;
+    }
+
     public String getUpdated_ts() {
-        return updated_ts;
+        return Updated_ts;
     }
 
     public void setUpdated_ts(String updated_ts) {
-        this.updated_ts = updated_ts;
+        Updated_ts = updated_ts;
     }
 }
